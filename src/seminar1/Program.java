@@ -1,5 +1,7 @@
 package seminar1;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +52,33 @@ public class Program {
         for (Person person : familyTree.getOlder(1990)) {
             System.out.println(person.getName() + " " + person.getSurname() + " older");
         }
+
+        // Создаем объект для работы с файлами
+        FileOperations fileOps = new FileOperationsImpl();
+// Сохраняем генеалогическое древо в файл
+        try {
+            fileOps.saveToFile(familyTree, "src\\seminar1\\familyTree.dat");
+            System.out.println("Family tree saved to file.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+// Загружаем генеалогическое древо из файла
+        FamilyTree loadedFamilyTree = null;
+        try {
+            loadedFamilyTree =
+                    fileOps.loadFromFile("src\\seminar1\\familyTree.dat");
+            System.out.println("Family tree loaded from file.");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+// Проверяем, что древо загрузилось правильно
+        if (loadedFamilyTree != null) {
+            for (Person person : loadedFamilyTree.getPeople()) {
+                System.out.println("Loaded person: " +
+                        person.getName() + ", born in " + person.getBirthYear());
+            }
+        }
+
 
     }
 }

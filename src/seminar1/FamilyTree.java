@@ -60,4 +60,8 @@ public class FamilyTree implements Serializable {
         }
         return older;
     }
+
+    public List<Person> getPeople() {
+        return people;
+    }
 }

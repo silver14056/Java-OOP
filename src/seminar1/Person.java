@@ -1,9 +1,10 @@
 package seminar1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person {
+public class Person implements Serializable {
     private String name;
     private String surname;
     private int birthYear;

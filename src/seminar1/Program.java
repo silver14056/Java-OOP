@@ -48,7 +48,7 @@ public class Program {
         }
 
         for (Person person : familyTree.getOlder(1990)) {
-            System.out.println(person.getName() + " " + person.getSurname() + "  older");
+            System.out.println(person.getName() + " " + person.getSurname() + " older");
         }
 
     }

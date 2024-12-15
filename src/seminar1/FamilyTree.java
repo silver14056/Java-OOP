@@ -2,7 +2,6 @@ package seminar1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class FamilyTree {
     private List<Person> people;
@@ -24,14 +23,40 @@ public class FamilyTree {
         return null;
     }
 
-    public List<Person> getChildren(Person parent) {
-        return parent.getChildren();
+    public Person findPersonByName(String name, String surname) {
+        for (Person person : people) {
+            if (person.getName().equals(name)) {
+                if (person.getSurname().equals(surname)) {
+                    return person;
+                }
+            }
+        }
+        return null;
     }
 
-    public List<Person> getSpouses(Person person) {
-        return people;
+    public List<Person> getChildren(Person parent) {
+        return parent.getChild();
     }
+
+
     public List<Person> getSiblings(Person person) {
-        return people;
+        List<Person> siblings = new ArrayList<>();
+        for (Person child: person.getMother().getChild()) {
+            if (child.getName().equals(person.getName())) {
+                continue;
+            }
+            siblings.add(child);
+        }
+        return siblings;
+    }
+
+    public List<Person> getOlder(int birthYear) {
+        List<Person> older = new ArrayList<>();
+        for (Person person : people) {
+            if (person.getBirthYear() < birthYear) {
+                older.add(person);
+            }
+        }
+        return older;
     }
 }

@@ -2,7 +2,6 @@ package seminar1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Person {
     private String name;
@@ -46,12 +45,13 @@ public class Person {
         this.mother = mother;
     }
 
-    public List<Person> getChildren() {
+    public List<Person> getChild() {
         return children;
     }
+
     public void addChildren(Person child) {
         this.children.add(child);
-        if (child.getGender().equals("male")) {
+        if (this.getGender().equals("male")) {
             child.setFather(this);
         } else {
             child.setMother(this);
@@ -68,5 +68,10 @@ public class Person {
 
     public String getGender() {
         return gender;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + surname + " " + birthYear + " " + gender;
     }
 }

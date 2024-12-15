@@ -50,6 +50,7 @@ public class FamilyTree {
         return siblings;
     }
 
+
     public List<Person> getOlder(int birthYear) {
         List<Person> older = new ArrayList<>();
         for (Person person : people) {

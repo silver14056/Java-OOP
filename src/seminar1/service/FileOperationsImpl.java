@@ -1,8 +1,10 @@
-package seminar1;
+package seminar1.service;
+
+import seminar1.model.FamilyTree;
 
 import java.io.*;
 
-class FileOperationsImpl implements FileOperations {
+public class FileOperationsImpl implements FileOperations {
     @Override
     public void saveToFile(FamilyTree familyTree, String fileName)
             throws IOException {

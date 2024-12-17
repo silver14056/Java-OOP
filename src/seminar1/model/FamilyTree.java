@@ -1,10 +1,13 @@
-package seminar1;
+package seminar1.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Collections;
 
-public class FamilyTree implements Serializable {
+public class FamilyTree implements Serializable, Iterable<Person> {
+    private static final long serialVersionUID = 1L;
     private List<Person> people;
 
     public FamilyTree() {
@@ -63,5 +66,18 @@ public class FamilyTree implements Serializable {
 
     public List<Person> getPeople() {
         return people;
+    }
+
+    @Override
+    public Iterator<Person> iterator() {
+        return people.iterator();
+    }
+
+    public void sortByName() {
+        Collections.sort(people, (p1, p2) -> p1.getName().compareTo(p2.getName()));
+    }
+
+    public void sortByBirthYear() {
+        Collections.sort(people, (p1, p2) -> Integer.compare(p1.getBirthYear(), p2.getBirthYear()));
     }
 }

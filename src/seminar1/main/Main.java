@@ -1,11 +1,14 @@
-package seminar1;
+package seminar1.main;
+
+import seminar1.model.FamilyTree;
+import seminar1.model.Person;
+import seminar1.service.FileOperations;
+import seminar1.service.FileOperationsImpl;
 
 import java.io.IOException;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Program {
+public class Main {
     public static void main(String[] args) {
         FamilyTree familyTree = new FamilyTree();
         Person ivanIvanov = new Person("Ivan", "Ivanov", 1985, "male");
@@ -52,6 +55,24 @@ public class Program {
         for (Person person : familyTree.getOlder(1990)) {
             System.out.println(person.getName() + " " + person.getSurname() + " older");
         }
+
+
+        // Сортируем по имени
+        System.out.println("Сортировка по имени:");
+        familyTree.sortByName();
+        for (Person person : familyTree) {
+            System.out.println(person.getName() + " - " +
+                    person.getBirthYear());
+        }
+        // Сортируем по дате рождения
+        System.out.println("\nСортировка по дате рождения:");
+        familyTree.sortByBirthYear();
+        for (Person person : familyTree) {
+            System.out.println(person.getName() + " - " +
+                    person.getBirthYear());
+        }
+
+
 
         // Создаем объект для работы с файлами
         FileOperations fileOps = new FileOperationsImpl();

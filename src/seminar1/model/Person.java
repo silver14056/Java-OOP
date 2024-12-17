@@ -1,10 +1,11 @@
-package seminar1;
+package seminar1.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Person implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String name;
     private String surname;
     private int birthYear;

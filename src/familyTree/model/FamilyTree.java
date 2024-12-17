@@ -1,4 +1,4 @@
-package seminar1.model;
+package familyTree.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

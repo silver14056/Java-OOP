@@ -1,9 +1,9 @@
-package seminar1.main;
+package familyTree.main;
 
-import seminar1.model.FamilyTree;
-import seminar1.model.Person;
-import seminar1.service.FileOperations;
-import seminar1.service.FileOperationsImpl;
+import familyTree.model.FamilyTree;
+import familyTree.model.Person;
+import familyTree.service.FileOperations;
+import familyTree.service.FileOperationsImpl;
 
 import java.io.IOException;
 import java.util.List;

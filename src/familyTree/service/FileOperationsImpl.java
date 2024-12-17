@@ -1,6 +1,6 @@
-package seminar1.service;
+package familyTree.service;
 
-import seminar1.model.FamilyTree;
+import familyTree.model.FamilyTree;
 
 import java.io.*;
 
